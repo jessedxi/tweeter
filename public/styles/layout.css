@@ -30,9 +30,46 @@ main {
   display: flex;
   width: 90%;
   background-color: #f4f1ec;
+  flex-direction: column;
 }
 
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+article {
+  border-style: solid;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+article:hover {
+  box-shadow: 10px 10px 5px darkgray;
+  text-shadow: 2px 2px 2px darkgray;
+ 
+}
+
+article:hover .username {
+  display: block;
+}
+
+article > header {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+}
+
+article > footer {
+  display: flex;
+  justify-content: space-between;
+  border-top-style: solid;
+  margin: 0.5em;
+}
+
+article > p {
+  margin-left: 1em;
+}
+
+.username {
+  display: none;
+}

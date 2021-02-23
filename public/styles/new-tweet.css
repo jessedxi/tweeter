@@ -16,7 +16,7 @@
 }
 
 form {
-  font-family: 'Sans Sarif Pro', sans-serif;
+  font-family: 'Souce Sans Pro', sans-serif;
   width: 100%;
 }
 
@@ -27,7 +27,11 @@ form {
 #button-counter {
   display: flex;
   justify-content: space-between;
-  font-family: 'Bungee', sans-serif;
+  font-family: 'Bungee', cursive;
   width: 98.5%;
   margin: 9px
+}
+
+.overCount {
+  color: red;
 }
