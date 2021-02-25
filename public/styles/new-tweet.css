@@ -19,7 +19,6 @@
 }
 
 form {
-  font-family: 'Souce Sans Pro', sans-serif;
   width: 100%;
 }
 
@@ -30,7 +29,7 @@ form {
 #button-counter {
   display: flex;
   justify-content: space-between;
-  font-family: 'Bungee', cursive;
+  font-family: 'Bungee', 'sans-serif ';
   width: 98.5%;
   margin: 9px
 }
