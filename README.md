@@ -22,3 +22,7 @@ This repository is the starter code for the project: Students will fork and clon
 - nodemon
 
 ## Screenshots: 
+!['Desktop Style'](https://github.com/jessedxi/tweeter/blob/master/public/docs/desktop%20view.png)
+!['Error message'](https://github.com/jessedxi/tweeter/blob/master/public/docs/Error%20Message.png)
+!['Mobile Style'](https://github.com/jessedxi/tweeter/blob/master/public/docs/mobie:tablet%20style.png)
+
