@@ -51,12 +51,15 @@ $(document).ready(function() {
     event.preventDefault();
 
     if($counter.val() < 0) {
-      alert('Character Limit Exceeded');
+     $("#error-box-1").slideDown();
       return;
-    } else if ($textBox.val() === "") {
-      alert('Please submit a tweet!');
+    } else if ($textBox.val() === "" || !$textBox.val().trim().length) {
+      $("#error-box-2").slideDown();
       return;
     } else {
+
+      $("#error-box-1").slideUp();
+      $("#error-box-2").slideUp();
 
     
     $.ajax({
