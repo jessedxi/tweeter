@@ -4,16 +4,17 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//prevents scripts inject via form
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
+// generates new tweet article based on form input
 const createTweetElement = function(tweetObj) {
   const momentDate = moment(tweetObj.created_at).fromNow();
-  const date = new Date(tweetObj.created_at).toUTCString();
-const article = `<article>
+  const article = `<article>
         <header>
           <span class="name"><img src=${tweetObj.user.avatars}></img>${tweetObj.user.name}</span>
           <span class="username">${tweetObj.user.handle} </span>
@@ -25,33 +26,35 @@ const article = `<article>
         </footer>
       </article>`;
 
-      return article;
+  return article;
 };
 
+//clears form and resets counter
 const resetForm = function() {
-  document.getElementById("tweet-text").value = "";
+  $('#tweet-text').val("");
   $('.counter').text('140');
-}
+};
 
-
+//loads tweet data into designated container
 const renderTweets = function(tweets) {
   $.each(tweets, (index, tweetObj) => {
     $('#tweets-container').append(createTweetElement(tweetObj));
-  })
-}
-
+  });
+};
 
 
 $(document).ready(function() {
 
+  //handles form input, calling functions to load tweets on page and validates input form before processing.
   $('#tweet-form').on('submit', function(event) {
     const $parentSection = $(event.target).closest('section');
     const $counter = $parentSection.find('.counter');
-    const $textBox = $parentSection.find('#tweet-text')
+    const $textBox = $parentSection.find('#tweet-text');
+    
     event.preventDefault();
 
-    if($counter.val() < 0) {
-     $("#error-box-1").slideDown();
+    if ($counter.val() < 0) {
+      $("#error-box-1").slideDown();
       return;
     } else if ($textBox.val() === "" || !$textBox.val().trim().length) {
       $("#error-box-2").slideDown();
@@ -61,42 +64,35 @@ $(document).ready(function() {
       $("#error-box-1").slideUp();
       $("#error-box-2").slideUp();
 
-    
-    $.ajax({
-      url: "/tweets",
-      method: "POST",
-      data: $(this).serialize()
-    })
-    .done((data) => {
-      resetForm();
       $.ajax({
         url: "/tweets",
-        method: "GET"
+        method: "POST",
+        data: $(this).serialize()
       })
-      .done((data) =>{
-        $('#tweets-container').prepend($(createTweetElement(data.reverse()[0])));
-      })
-        
-    })
-    .fail((err) => {
-      console.log('Error did not work');
-    })
-  }
-   
+        .done((data) => {
+          resetForm();
+          $('#tweets-container').empty();
+          loadTweets();
+        })
+        .fail((err) => {
+          console.log('Error did not work');
+        });
+    }
   });
 
+  //loads tweet data onto page
   const loadTweets = function() {
     $.ajax({
       url: "/tweets",
       method: "GET"
     })
-    .done((data) =>{
-      renderTweets(data.reverse());
-    })
-  }
+      .done((data) =>{
+        renderTweets(data.reverse());
+      });
+  };
   
   
 
- loadTweets();
+  loadTweets();
 });
 

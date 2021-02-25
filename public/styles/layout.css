@@ -23,6 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 
 
@@ -31,12 +32,15 @@ main {
   width: 90%;
   background-color: #f4f1ec;
   flex-direction: column;
+  word-break: break-word;
 }
 
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ /* css for tweet articles: */
 article {
   border-style: solid;
   margin-top: 2em;
@@ -47,6 +51,10 @@ article:hover {
   box-shadow: 10px 10px 5px darkgray;
   text-shadow: 2px 2px 2px darkgray;
  
+}
+
+article:hover .buttons {
+  display: block;
 }
 
 article:hover .username {
@@ -77,11 +85,14 @@ article > p {
 
 }
 
+.buttons {
+  display: none;
+}
 .username {
   display: none;
 }
 
-
+/*css for error boxes: */
 
 #error-box-1 {
   width      : 100%;
@@ -105,9 +116,27 @@ article > p {
   color: white;
   font-family: 'Bungee', 'sans serif';
   background : #A60000;
-  justify-content: center;
+  justify-content: center;  
   text-align : center;
   border     : 2px solid white;
 
   display    : none;
 }
+/* responsive design for main layout: */
+@media only screen and (min-width: 1024px)  {
+  body  {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  main {    
+    margin-top: 10em;
+    width: 50%;
+    margin-right: 1rem;
+    margin-left: 7rem;
+  }
+}
+
+
+
+

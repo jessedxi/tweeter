@@ -1,3 +1,4 @@
+/* nav bar css */
 nav {
   height: 120px;
   width:100%;
@@ -9,9 +10,15 @@ nav {
   overflow: hidden;
 }
 
-div{
+nav > button {
   float: right;
   font-family: 'Source Sans Pro', 'sans-serif';
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #ffffff;
 }
 
 nav span {

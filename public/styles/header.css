@@ -1,3 +1,5 @@
+/* main header css */
+
 body > header {
   margin-top: 5em;
   display: flex;
@@ -8,5 +10,17 @@ body > header {
   flex-direction: column;
   background-color: blanchedalmond;
   background-image: url(/images/45-degree-fabric-light.png);
-
 }
+
+/* responsive design code for header */
+
+@media only screen and (min-width: 1024px) {
+body > header {
+  width: 40%;
+  margin-top: 10em;
+  margin-left: 2em;
+  background-color: #4056a1;
+  background-image: url(/images/45-degree-fabric-light.png);
+ }
+}
+
