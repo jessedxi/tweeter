@@ -56,6 +56,7 @@ article:hover .username {
 article > header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 1em;
 }
 
@@ -68,6 +69,12 @@ article > footer {
 
 article > p {
   margin-left: 1em;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+
 }
 
 .username {

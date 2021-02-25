@@ -16,7 +16,7 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
@@ -32,17 +32,17 @@
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
-      <br>
+      <!-- <br> -->
       <div>
           <h2>Your Name</h2>
       </div>
-  </header>
+    </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST">
+        <form action="/tweets" method="POST" id="tweet-form">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div id= "button-counter">
@@ -51,18 +51,8 @@
           </div>
         </form>
       </section>
-      <article>
-        <header>
-          <span class="name">Generic Person</span>
-          <span class="username">@generic</span>
-        </header>
-        <p>Tweet goes here.</p>
-        <footer>
-          <span class="days">X days ago</span>
-          <span class="buttons">A B C</span>
-        </footer>
-
-      </article>
+      <section id="tweets-container">
+    </section>
     </main>
   </body>
 </html>
